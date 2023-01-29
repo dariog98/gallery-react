@@ -42,15 +42,14 @@ function Gallery() {
     
     return (
         <>
-            <div className="flex flex-column gap-1 my-1 mx-2">
+            <div className="flex flex-column align-items-center gap-1 mx-2">
                 <div className="flex flex-wrap gap-1">
                     {items.map((item, index) => (
                         <GalleryItem key={index} data={item}/>
                     ))}
                 </div>
 
-                <button onClick={getMorePhotos}> Get more </button>
-
+                <button className="square-button" onClick={getMorePhotos}> Get more </button>
             </div>
         </>
     );
