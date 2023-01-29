@@ -11,8 +11,9 @@ function Gallery() {
         try {
             const response = await photosServices.getPhotos(page)
             if (response.ok) {
-                const items = await response.json()
-                setItems(items)
+                const fetchItems = await response.json()
+                setItems(fetchItems)
+                console.log(fetchItems[0])
             } else {
                 console.log(response)
             }
@@ -42,7 +43,7 @@ function Gallery() {
     
     return (
         <>
-            <div className="flex flex-column align-items-center gap-1 mx-2">
+            <div className="flex flex-column align-items-center gap-1 item-page">
                 <div className="flex flex-wrap gap-1">
                     {items.map((item, index) => (
                         <GalleryItem key={index} data={item}/>

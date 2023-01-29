@@ -1,9 +1,8 @@
 import {useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Loading from '../components/Loading';
-
 import RoutesNavigation from '../constants/RoutesNavigation'
 import photosServices from '../services/photos'
+import Loading from '../components/Loading';
 
 const Item = () => {
     const params = useParams()
@@ -14,9 +13,10 @@ const Item = () => {
         try {
             const response = await photosServices.getPhoto(params.id)
             if (response.ok) {
-                const item = await response.json()
-                if (item) {
-                    setItem(item)
+                const fetchItem = await response.json()
+                if (fetchItem) {
+                    console.log(fetchItem)
+                    setItem(fetchItem)
                     setLoading(false)
                 }
             } else {
@@ -35,36 +35,32 @@ const Item = () => {
         !loading
         ? (
             item ?
-            <div className="item-page">
+            <div className="flex flex-column align-items-center item-page">
                 <img src={item.urls.raw} alt={item.title}/>
-                {/*
-                <div className="item-content">
-                    {item.alt_description}
-                </div>
-                */}
+                <div className="py-1"></div>
                 <div>
-                    <table>
+                    <table className="table">
                         <tbody>
+                            {item.alt_description &&
                             <tr>
-                                <td className="uppercase">ID</td>
-                                <td>{item.id}</td>
-                            </tr>
+                                <td className="uppercase text-right bold">Description</td>
+                                <td>{item.alt_description}</td>
+                            </tr>}
                             <tr>
-                                <td className="uppercase">Dimensions</td>
+                                <td className="uppercase text-right bold">Dimensions</td>
                                 <td>{`${item.width} x ${item.height}`}</td>
                             </tr>
                             <tr>
-                                <td className="uppercase">alt_description</td>
-                                <td>{item.alt_description}</td>
+                                <td className="uppercase text-right bold">user</td>
+                                {/*<td><Link to={`${RoutesNavigation.Users}/${item.user.username}`}>{item.user.username}</Link></td>*/}
+                                <td>{item.user.username}</td>
                             </tr>
                             <tr>
-                                <td className="uppercase">user</td>
-                                <td><Link to={`${RoutesNavigation.Users}/${item.user.username}`}>{item.user.username}</Link></td>
-                            </tr>
-                            <tr>
-                                <td className="uppercase">likes</td>
+                                <td className="uppercase text-right bold">likes</td>
                                 <td>{item.likes}</td>
-                                <td className="uppercase">downloads</td>
+                            </tr>
+                            <tr>
+                                <td className="uppercase text-right bold">downloads</td>
                                 <td>{item.downloads}</td>
                             </tr>
                         </tbody>
