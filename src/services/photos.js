@@ -7,8 +7,7 @@ const getPhotos = (page) => {
             Authorization: `Client-ID ${CLIENT_ID}`
         }
     }
-    //const url = `${API_URL}/${API_ROUTES.Photos}/?page=${page}&per_page=30&client_id=${CLIENT_ID}`
-    const url = `${API_URL}/${API_ROUTES.Photos}/?page=${page}&per_page=30`
+    const url = `${API_URL}/${API_ROUTES.Photos}/?page=${page}&per_page=30&client_id=${CLIENT_ID}`
     const response = fetch(url, options)
 
     return response
@@ -21,6 +20,19 @@ const getPhoto = (id) => {
     return response
 }
 
-const photosServices = { getPhotos, getPhoto }
+const getSearchPhotos = (search, page) => {
+    const options = {
+        method: "GET",
+        headers: {
+            Authorization: `Client-ID ${CLIENT_ID}`
+        }
+    }
+    const url = `${API_URL}/search/${API_ROUTES.Photos}/?query=${search}&page=${page}&per_page=30`
+    const response = fetch(url, options)
+
+    return response
+}
+
+const photosServices = { getPhotos, getPhoto, getSearchPhotos }
 
 export default photosServices
