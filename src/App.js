@@ -11,10 +11,10 @@ function App() {
         <BrowserRouter>
             <AppContainer>
                 <Routes>
-                    <Route exact path="/" element={ <HomePage/> }/>
-                    <Route exact path="/item/:id" element={ <ItemPage/> }/>
-                    <Route exact path="/random" element={ <ItemPage/> }/>
-                    <Route exact path="*" element={ <NotFoundPage/> }/>
+                    <Route path="/" element={ <HomePage/> }/>
+                    <Route path="/item/:id" element={ <ItemPage/> }/>
+                    <Route path="/random" element={ <ItemPage/> }/>
+                    <Route path="*" element={ <NotFoundPage/> }/>
                 </Routes>
             </AppContainer>
         </BrowserRouter>
