@@ -1,36 +1,24 @@
-import './index.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AppContainer from './components/AppContainer';
+import HomePage from './pages/Home';
+import ItemPage from './pages/Item';
+import NotFoundPage from './pages/NotFound';
 import './styles.css'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Item from './pages/Item'
-import Gallery from './pages/Gallery'
-import User from './pages/User'
-
 function App() {
-    return (
-        <div className="page">
-            <BrowserRouter>
-                <div className="page-header">
-                    <Navbar/>
-                </div>
 
-                <div className="page-content">
-                    <Routes>
-                        <Route path="/" element={ <Gallery/> }/>
-                        <Route path="/random" element={ <Item/> }/>
-                        <Route path="/:id" element={ <Item/> }/>
-                        <Route path="/users/:username" element={ <User/> }/>
-                    </Routes>
-                </div>
-                
-                <div className="page-footer">
-                    <Footer/>
-                </div>
-            </BrowserRouter>
-        </div>
-    );
+    return (
+        <BrowserRouter>
+            <AppContainer>
+                <Routes>
+                    <Route exact path="/" element={ <HomePage/> }/>
+                    <Route exact path="/item/:id" element={ <ItemPage/> }/>
+                    <Route exact path="/random" element={ <ItemPage/> }/>
+                    <Route exact path="*" element={ <NotFoundPage/> }/>
+                </Routes>
+            </AppContainer>
+        </BrowserRouter>
+    )
 }
 
 export default App;

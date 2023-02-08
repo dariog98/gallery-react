@@ -1,34 +1,28 @@
-import { Link } from "react-router-dom";
-import { HeartIcon, UserIcon } from '@heroicons/react/24/solid'
+import { Link as ReachLink } from "react-router-dom"
+import { HeartIcon, UserIcon } from "@heroicons/react/24/outline"
+import { Box, Flex, Image, Link } from "@chakra-ui/react"
 
 function GalleryItem({data}) {
-
     return (
-        <Link to={`/${data.id}`} className="photo-box">
+        <Box flexGrow={1} position="relative" className="photo-box">
+            <Link as={ReachLink} to={`/item/${data.id}`}>
+                <Image src={data.urls.regular} alt={data.title} height={400} w="100%" fit="cover"/>
+            </Link>
 
-            <img src={data.urls.regular} alt={data.title}/>
+            <Box position="absolute" bottom="0" left="0" right="0" h="3rem" background="#00000080" px={4} color='white'>
+                <Flex h="100%" justifyContent="space-between" alignItems="center">
+                    <Flex alignItems="center" gap={1}>
+                        <HeartIcon style={{width: "1.5rem", height: "1.5rem"}}/>
+                        <div>{data.likes}</div>
+                    </Flex>
 
-            <div className="photo-box-content">
-                <div className="h-100 flex align-items-center justify-content-between px-1">
-                    <div className="flex gap-1">
-                        <div className="flex align-items-center gap-05">
-                            <div style={{width: "1rem", height: "1rem"}}>
-                                <HeartIcon/>
-                            </div>
-                            <div>{data.likes}</div>
-                        </div>
-                    </div>
-
-                    <div className="flex align-items-center gap-05">
-                        <div style={{width: "1rem", height: "1rem"}}>
-                            <UserIcon/>
-                        </div>
-                        <div className="uppercase">{data.user.name}</div>
-                    </div>
-                </div>
-            </div>
-
-        </Link>
+                    <Flex alignItems="center" gap={1}>
+                        <UserIcon style={{width: "1.5rem", height: "1.5rem"}}/>
+                        <div>{data.user.name}</div>
+                    </Flex>
+                </Flex>
+            </Box>
+        </Box>
     )
 }
 

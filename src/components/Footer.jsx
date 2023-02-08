@@ -1,10 +1,38 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Flex, useColorMode } from "@chakra-ui/react"
+import { MoonIcon, SunIcon } from "@heroicons/react/24/solid"
+import RoutesNavigation from "../constants/RoutesNavigation"
+import NavbarButton from "./NavbarButton"
+import { Link as ReachLink, useLocation } from "react-router-dom"
+
+const iconSize = { width: "1.5rem", height: "1.5rem" }
+
 const Footer = () => {
+    const { colorMode, toggleColorMode } = useColorMode()
+    const location = useLocation()
+
     return (
-        <div className="page-footer">
-            <footer className="flex flex-column align-items-center justify-content-center p-2">
-                <div>by HERO</div>
-            </footer>
-        </div>
+        <Flex alignItems="center" justifyContent="space-between" py={4}>
+            {/*
+            <Flex gap={4}>
+                <NavbarButton route={RoutesNavigation.Home} text={"Lastest"}/>
+                <NavbarButton route={RoutesNavigation.Popular} text={"Popular"}/>
+                <NavbarButton route={RoutesNavigation.Random} text={"Random"}/>
+            </Flex>
+            */}
+            <Breadcrumb separator="">
+                <BreadcrumbItem color={location.pathname === RoutesNavigation.Home ? "gray.500" : ""}>
+                    <BreadcrumbLink as={ReachLink} to={RoutesNavigation.Home}>Home</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem color={location.pathname === RoutesNavigation.Random ? "gray.500" : ""}>
+                    <BreadcrumbLink as={ReachLink} to={RoutesNavigation.Random}>Random</BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
+
+            <Button w="3rem" h="3rem" p={0} m={0} onClick={toggleColorMode}>
+                {colorMode === "light" ? <SunIcon style={iconSize}/> : <MoonIcon style={iconSize}/>}
+            </Button>
+        </Flex>
     )
 }
 

@@ -1,18 +1,10 @@
-import RoutesNavigation from "../constants/RoutesNavigation"
-import NavbarButton from "./NavbarButton"
+import { Box, Heading } from "@chakra-ui/react"
 
 const Navbar = () => {
-
     return (
-        <div className="flex flex-column align-items-center justify-content-center py-1">
-            <h1 className="main-title uppercase">Gallery</h1>
-
-            <div className="flex gap-1 py-1">
-                <NavbarButton route={RoutesNavigation.Home} text={"Home"}/>
-                <NavbarButton route={RoutesNavigation.Random} text={"Random"}/>
-            </div>
-
-        </div>
+        <Box py={4}>
+            <Heading as='h1' size='2xl' style={{textTransform: "uppercase"}}>Gallery</Heading>
+        </Box>
     )
 }
 

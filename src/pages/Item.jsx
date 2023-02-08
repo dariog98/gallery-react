@@ -1,10 +1,14 @@
 import {useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import RoutesNavigation from '../constants/RoutesNavigation'
+import { useParams } from 'react-router-dom';
 import photosServices from '../services/photos'
 import Loading from '../components/Loading';
+import { Flex, Image, Table, TableContainer, Tbody, Tr, Td, Card, CardBody, Button } from '@chakra-ui/react';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 
-const Item = () => {
+const rowDescription = {textTransform: "uppercase", fontWeight: "bold", textAlign: "right"}
+
+const ItemPage = () => {
     const params = useParams()
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -29,52 +33,63 @@ const Item = () => {
 
     useEffect( () => {
         fetchItem()
-    }, [])
+    }, [params])
 
     return (
         !loading
         ? (
             item ?
-            <div className="flex flex-column align-items-center item-page">
-                <img src={item.urls.raw} alt={item.title}/>
-                <div className="py-1"></div>
-                <div>
-                    <table className="table">
-                        <tbody>
-                            {item.alt_description &&
-                            <tr>
-                                <td className="uppercase text-right bold">Description</td>
-                                <td>{item.alt_description}</td>
-                            </tr>}
-                            <tr>
-                                <td className="uppercase text-right bold">Dimensions</td>
-                                <td>{`${item.width} x ${item.height}`}</td>
-                            </tr>
-                            <tr>
-                                <td className="uppercase text-right bold">user</td>
-                                {/*<td><Link to={`${RoutesNavigation.Users}/${item.user.username}`}>{item.user.username}</Link></td>*/}
-                                <td>{item.user.username}</td>
-                            </tr>
-                            <tr>
-                                <td className="uppercase text-right bold">likes</td>
-                                <td>{item.likes}</td>
-                            </tr>
-                            <tr>
-                                <td className="uppercase text-right bold">downloads</td>
-                                <td>{item.downloads}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <Flex direction="column" gap={4}>
+                <Image src={item.urls.regular} alt={item.title}/>
+                <Card>
+                    <CardBody>
+                        <Flex direction="column" alignItems="center" gap={4}>
+                            <TableContainer>
+                                <Table size="sm" variant="unstyled">
+                                    <Tbody>
+                                        {item.alt_description &&
+                                        <Tr>
+                                            <Td style={rowDescription}>Description</Td>
+                                            <Td>{item.alt_description}</Td>
+                                        </Tr>}
+                                        <Tr>
+                                            <Td style={rowDescription}>Dimensions</Td>
+                                            <Td>{`${item.width} x ${item.height}`}</Td>
+                                        </Tr>
+                                        <Tr>
+                                            <Td style={rowDescription }>user</Td>
+                                            {/*<Td><Link to={`${RoutesNavigation.Users}/${item.user.username}`}>{item.user.username}</Link></Td>*/}
+                                            <Td>{item.user.username}</Td>
+                                        </Tr>
+                                        <Tr>
+                                            <Td style={rowDescription}>likes</Td>
+                                            <Td>{item.likes}</Td>
+                                        </Tr>
+                                        <Tr>
+                                            <Td style={rowDescription}>downloads</Td>
+                                            <Td>{item.downloads}</Td>
+                                        </Tr>
+                                    </Tbody>
+                                </Table>
+                            </TableContainer>
+
+                            <Button as="a" href={item.urls.raw} style={{ textTransform: "uppercase" }} gap={1}>
+                                <ArrowDownTrayIcon style={{width: "1.25rem", height: "1.25rem"}}/>
+                                Download
+                            </Button>
+                        </Flex>
+                    </CardBody>
+                </Card>
+            </Flex>
             :
-            <div className="flex flex-column align-items-center justify-content-center gap-1" style={{height: "100%"}}> 
+            <Flex direction="column" alignItems="center" justifyContent="center" h="100%" gap={4}> 
+                <ExclamationTriangleIcon style={{width: "3rem", height: "3rem"}}/>
                 <div>¡Error!</div>
-                <div>Item not found</div>
-            </div>
+                <div>Photo not found</div>
+            </Flex>
         ) 
         : <Loading/>
     )
 }
 
-export default Item;
+export default ItemPage

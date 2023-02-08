@@ -1,13 +1,14 @@
 import { API_ROUTES, API_URL, CLIENT_ID } from "../constants/API"
 
-const getPhotos = (page) => {
+const getPhotos = (page, order) => {
     const options = {
         method: "GET",
         headers: {
             Authorization: `Client-ID ${CLIENT_ID}`
         }
     }
-    const url = `${API_URL}/${API_ROUTES.Photos}/?page=${page}&per_page=30&client_id=${CLIENT_ID}`
+    
+    const url = `${API_URL}/${API_ROUTES.Photos}/?page=${page}&per_page=30&order_by=${order}`
     const response = fetch(url, options)
 
     return response
@@ -20,14 +21,14 @@ const getPhoto = (id) => {
     return response
 }
 
-const getSearchPhotos = (search, page) => {
+const getSearchPhotos = (search, page, order) => {
     const options = {
         method: "GET",
         headers: {
             Authorization: `Client-ID ${CLIENT_ID}`
         }
     }
-    const url = `${API_URL}/search/${API_ROUTES.Photos}/?query=${search}&page=${page}&per_page=30`
+    const url = `${API_URL}/search/${API_ROUTES.Photos}/?query=${search}&page=${page}&per_page=30&order_by=${order}`
     const response = fetch(url, options)
 
     return response
