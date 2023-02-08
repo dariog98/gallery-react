@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/gallery-react/static/css/main.829edd1a.css",
+    "main.js": "/gallery-react/static/js/main.f8953dba.js",
+    "static/media/ubuntu-all-400-normal.woff": "/gallery-react/static/media/ubuntu-all-400-normal.8629f83ad2c45e75a914.woff",
+    "static/media/ubuntu-latin-ext-400-normal.woff2": "/gallery-react/static/media/ubuntu-latin-ext-400-normal.9967dbf10fc3cb92edfb.woff2",
+    "static/media/ubuntu-latin-400-normal.woff2": "/gallery-react/static/media/ubuntu-latin-400-normal.2f02effe392a63dc07a5.woff2",
+    "static/media/ubuntu-cyrillic-ext-400-normal.woff2": "/gallery-react/static/media/ubuntu-cyrillic-ext-400-normal.80c010be16bde8b7e613.woff2",
+    "static/media/ubuntu-cyrillic-400-normal.woff2": "/gallery-react/static/media/ubuntu-cyrillic-400-normal.5baf1f37de97e50ab654.woff2",
+    "static/media/ubuntu-greek-400-normal.woff2": "/gallery-react/static/media/ubuntu-greek-400-normal.038ee74fde7a2c872ee2.woff2",
+    "static/media/ubuntu-greek-ext-400-normal.woff2": "/gallery-react/static/media/ubuntu-greek-ext-400-normal.7f5049065c02fb5e0628.woff2",
+    "index.html": "/gallery-react/index.html",
+    "main.829edd1a.css.map": "/gallery-react/static/css/main.829edd1a.css.map",
+    "main.f8953dba.js.map": "/gallery-react/static/js/main.f8953dba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.829edd1a.css",
+    "static/js/main.f8953dba.js"
+  ]
+}
