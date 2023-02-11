@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/gallery-react/static/css/main.eb90e02f.css",
+    "main.css": "/gallery-react/static/css/main.602bc10f.css",
     "main.js": "/gallery-react/static/js/main.677fb409.js",
     "static/media/ubuntu-all-400-normal.woff": "/gallery-react/static/media/ubuntu-all-400-normal.8629f83ad2c45e75a914.woff",
     "static/media/ubuntu-latin-ext-400-normal.woff2": "/gallery-react/static/media/ubuntu-latin-ext-400-normal.9967dbf10fc3cb92edfb.woff2",
@@ -10,11 +10,11 @@
     "static/media/ubuntu-greek-400-normal.woff2": "/gallery-react/static/media/ubuntu-greek-400-normal.038ee74fde7a2c872ee2.woff2",
     "static/media/ubuntu-greek-ext-400-normal.woff2": "/gallery-react/static/media/ubuntu-greek-ext-400-normal.7f5049065c02fb5e0628.woff2",
     "index.html": "/gallery-react/index.html",
-    "main.eb90e02f.css.map": "/gallery-react/static/css/main.eb90e02f.css.map",
+    "main.602bc10f.css.map": "/gallery-react/static/css/main.602bc10f.css.map",
     "main.677fb409.js.map": "/gallery-react/static/js/main.677fb409.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb90e02f.css",
+    "static/css/main.602bc10f.css",
     "static/js/main.677fb409.js"
   ]
 }
