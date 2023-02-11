@@ -4,4 +4,50 @@
 
 .photo-box:hover > div {
     display: inherit;
+    background: #00000000;
+}
+
+.photo-box:hover > .hover {
+    display: inherit;
+    background: #00000050;
+}
+
+.photo-box-border::before {
+    content: "";
+    display: block;
+    background: #3f474c;
+    width: 15px;
+    height: 1px;
+}
+
+.photo-box-border::after {
+    content: "";
+    display: block;
+    margin-left: auto;
+    margin-right: 0px;
+    align-self: end;
+    background: #3f474c;
+    width: 15px;
+    height: 1px;
+}
+
+.inside-box-border::before {
+    content: "";
+    display: block;
+    background: #3f474c;
+    width: 1px;
+    height: 15px;
+    margin-bottom: -15px;
+}
+
+.inside-box-border::after {
+    content: "";
+    display: block;
+    margin-top: -15px;
+    margin-left: auto;
+    margin-right: 0px;
+    align-self: end;
+    background: #3f474c;
+    width: 1px;
+    height: 15px;
 }

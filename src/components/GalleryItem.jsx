@@ -4,10 +4,12 @@ import { Box, Flex, Image, Link } from "@chakra-ui/react"
 
 function GalleryItem({data}) {
     return (
-        <Box flexGrow={1} position="relative" className="photo-box">
+        <Box position="relative" flexGrow={1} className="photo-box">
             <Link as={ReachLink} to={`/item/${data.id}`}>
                 <Image src={data.urls.regular} alt={data.title} height={400} w="100%" fit="cover"/>
             </Link>
+
+            <Box position="absolute" bottom="0" left="0" right="0" top="0" className="hover"></Box>
 
             <Box position="absolute" bottom="0" left="0" right="0" h="3rem" background="#00000080" px={4} color='white'>
                 <Flex h="100%" justifyContent="space-between" alignItems="center">

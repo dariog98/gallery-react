@@ -4,7 +4,7 @@ import GalleryItem from '../components/GalleryItem';
 import Loading from '../components/Loading';
 import usersServices from '../services/users';
 
-const Item = () => {
+const UserPage = () => {
     const params = useParams()
     const [page, setPage] = useState(1)
     const [user, setUser] = useState(null)
@@ -98,4 +98,4 @@ const Item = () => {
     )
 }
 
-export default Item;
+export default UserPage;
