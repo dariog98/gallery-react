@@ -1,5 +1,5 @@
-import { Flex } from "@chakra-ui/react";
-import GalleryItem from "./GalleryItem";
+import { Flex } from "@chakra-ui/react"
+import GalleryPhoto from "./GalleryPhoto"
 
 const Gallery = ({ collections }) => {
     return (
@@ -8,7 +8,7 @@ const Gallery = ({ collections }) => {
                 {collections.map((collection, index) => (
                     <Flex key={index} gap={4} flexWrap="wrap">
                         {collection.map((item, jndex) => (
-                            <GalleryItem key={jndex} data={item}/>
+                            <GalleryPhoto key={jndex} data={item}/>
                         ))}
                     </Flex>
                 ))}

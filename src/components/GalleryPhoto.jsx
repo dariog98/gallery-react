@@ -1,12 +1,13 @@
 import { Link as ReachLink } from "react-router-dom"
 import { HeartIcon, UserIcon } from "@heroicons/react/24/outline"
 import { Box, Flex, Image, Link } from "@chakra-ui/react"
+import RoutesNavigation from "../constants/RoutesNavigation"
 
-function GalleryItem({data}) {
+const GalleryPhoto = ({data}) => {
     return (
         <Box position="relative" flexGrow={1} className="photo-box">
-            <Link as={ReachLink} to={`/item/${data.id}`}>
-                <Image src={data.urls.regular} alt={data.title} height={400} w="100%" fit="cover"/>
+            <Link as={ReachLink} to={`${RoutesNavigation.Photo}/${data.id}`} style={{minHeight: "300px", minWidth: "150px"}}>
+                <Image src={data.urls.regular} alt={data.title} height={300} w="100%" fit="cover" background="#808080"/>
             </Link>
 
             <Box position="absolute" bottom="0" left="0" right="0" top="0" className="hover"></Box>
@@ -28,4 +29,4 @@ function GalleryItem({data}) {
     )
 }
 
-export default GalleryItem;
+export default GalleryPhoto

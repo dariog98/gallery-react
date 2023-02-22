@@ -1,7 +1,6 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Flex, useColorMode } from "@chakra-ui/react"
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid"
 import RoutesNavigation from "../constants/RoutesNavigation"
-//import NavbarButton from "./NavbarButton"
 import { Link as ReachLink, useLocation } from "react-router-dom"
 
 const iconSize = { width: "1.5rem", height: "1.5rem" }
@@ -12,13 +11,6 @@ const Footer = () => {
 
     return (
         <Flex alignItems="center" justifyContent="space-between" py={4}>
-            {/*
-            <Flex gap={4}>
-                <NavbarButton route={RoutesNavigation.Home} text={"Lastest"}/>
-                <NavbarButton route={RoutesNavigation.Popular} text={"Popular"}/>
-                <NavbarButton route={RoutesNavigation.Random} text={"Random"}/>
-            </Flex>
-            */}
             <Breadcrumb separator="">
                 <BreadcrumbItem color={location.pathname === RoutesNavigation.Home ? "gray.500" : ""}>
                     <BreadcrumbLink as={ReachLink} to={RoutesNavigation.Home}>Home</BreadcrumbLink>

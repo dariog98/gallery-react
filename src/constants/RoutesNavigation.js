@@ -1,10 +1,9 @@
 const RoutesNavigation = {
     Home: "/",
-    Random: "/random",
-    Photo: "/:id",
+    Random: "/photo/random",
+    Photo: "/photo",
     Photos: "/photos",
-    Users: "/users",
-    Popular: "/popular",
+    Users: "/users"
 }
 
 export default RoutesNavigation
