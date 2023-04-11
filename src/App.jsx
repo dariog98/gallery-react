@@ -5,7 +5,7 @@ import { Home, NotFound, Photo } from './pages'
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: RoutesNavigation.Home,
         element: <AppContainer/>,
         children: [
             {
@@ -20,20 +20,15 @@ const router = createBrowserRouter([
                 path: RoutesNavigation.Photo,
                 element: <Photo/>,
             },
-            /*
             {
-                path: RoutesNavigation.Photos,
-                element: <Photo/>
-            },
-            */
-            
+                path: '*',
+                element: <NotFound/>
+            }
         ]
-    },
-    {
-        path: '*',
-        element: <NotFound/>
-    },
-])
+    }
+], {
+    basename: RoutesNavigation.basename,
+})
 
 const App = () => {
     return (

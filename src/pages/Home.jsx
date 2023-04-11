@@ -1,13 +1,14 @@
 import { Button, Flex, useColorMode } from '@chakra-ui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { Gallery, Loading, Search }from '../components'
 import { useCollections } from '../hooks'
 
 const HomePage = () => {
-    const params = useParams()
+    //const params = useParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const { colorMode } = useColorMode()
-    const { loading, collections, getMorePhotos, inputSearch, handleInputSearch, handleSearch } = useCollections(params.search)
+    const { loading, collections, getMorePhotos, inputSearch, handleInputSearch, handleSearch } = useCollections(searchParams.get("search"))
 
     return (
         <Flex direction='column' gap={4} alignItems='center' h='100%'>

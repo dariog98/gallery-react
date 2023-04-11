@@ -61,7 +61,7 @@ const useCollections = (search) => {
     const handleSearch = ({key}) => {
         if (key === 'Enter') {
             setPage(1)
-            navigate(`/${inputSearch}`)
+            navigate(`${RoutesNavigation.Home}?search=${inputSearch}`)
         }
     }
 
