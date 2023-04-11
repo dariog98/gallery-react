@@ -1,29 +1,20 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Flex, useColorMode } from "@chakra-ui/react"
-import { MoonIcon, SunIcon } from "@heroicons/react/24/solid"
-import RoutesNavigation from "../constants/RoutesNavigation"
-import { Link as ReachLink, useLocation } from "react-router-dom"
+import { Flex, Text, Link } from '@chakra-ui/react'
+import { GlobeAltIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
-const iconSize = { width: "1.5rem", height: "1.5rem" }
+const iconSize = { width: "1.25rem", height: "1.25rem" }
 
 const Footer = () => {
-    const { colorMode, toggleColorMode } = useColorMode()
-    const location = useLocation()
-
     return (
-        <Flex alignItems="center" justifyContent="space-between" py={4}>
-            <Breadcrumb separator="">
-                <BreadcrumbItem color={location.pathname === RoutesNavigation.Home ? "gray.500" : ""}>
-                    <BreadcrumbLink as={ReachLink} to={RoutesNavigation.Home}>Home</BreadcrumbLink>
-                </BreadcrumbItem>
+        <Flex alignItems='center' justifyContent='space-around' py='4' gap='4'>
+            <Link href='https://github.com/dariog98' display='flex' alignItems='center' gap='2'>
+                <UserCircleIcon style={iconSize}/>
+                <Text>by dariog98</Text>
+            </Link>
 
-                <BreadcrumbItem color={location.pathname === RoutesNavigation.Random ? "gray.500" : ""}>
-                    <BreadcrumbLink as={ReachLink} to={RoutesNavigation.Random}>Random</BreadcrumbLink>
-                </BreadcrumbItem>
-            </Breadcrumb>
-
-            <Button w="3rem" h="3rem" p={0} m={0} onClick={toggleColorMode}>
-                {colorMode === "light" ? <SunIcon style={iconSize}/> : <MoonIcon style={iconSize}/>}
-            </Button>
+            <Link href='https://github.com/dariog98/gallery-react' display='flex' alignItems='center' gap='2'>
+                <GlobeAltIcon style={iconSize}/>
+                <Text>source code</Text>
+            </Link>
         </Flex>
     )
 }

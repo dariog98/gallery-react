@@ -15,9 +15,14 @@ const getPhotos = (page, order) => {
 }
 
 const getPhoto = (id) => {
-    const url = `${API_URL}/${API_ROUTES.Photos}/${id ? id : "random"}?client_id=${CLIENT_ID}`
+    const url = `${API_URL}/${API_ROUTES.Photos}/${id}?client_id=${CLIENT_ID}`
     const response = fetch(url)
+    return response
+}
 
+const getRandomPhoto = () => {
+    const url = `${API_URL}/${API_ROUTES.Photos}/random?client_id=${CLIENT_ID}`
+    const response = fetch(url)
     return response
 }
 
@@ -34,6 +39,6 @@ const getSearchPhotos = (search, page, order) => {
     return response
 }
 
-const photosServices = { getPhotos, getPhoto, getSearchPhotos }
+const photos = { getPhotos, getPhoto, getRandomPhoto, getSearchPhotos }
 
-export default photosServices
+export default photos

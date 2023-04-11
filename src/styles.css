@@ -1,16 +1,60 @@
+/*
+.photo-box:hover {
+    min-height: 400px;
+}
+
+.photo-box:hover > a > img {
+    height: 400px;
+}
+*/
+
+.photo-box {
+    position: relative;
+}
+
+.photo-box::before {
+    display: block;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.photo-box::after {
+    display: block;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+/*
+.photo-box > a > img {
+    height: 300px;
+}
+
 .photo-box > div {
     display: none;
     pointer-events: none;
 }
 
+.photo-box > .hover {
+    display: none;
+}
+
 .photo-box:hover > div {
     display: inherit;
-    background: #00000000;
 }
 
 .photo-box:hover > .hover {
     display: inherit;
-    background: #00000050;
 }
 
 .photo-box-border::before {
@@ -52,3 +96,4 @@
     width: 1px;
     height: 15px;
 }
+*/

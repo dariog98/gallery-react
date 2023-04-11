@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import RoutesNavigation from "../constants/RoutesNavigation"
-import photosServices from "../services/photos"
+import { photos } from "../services"
 
 const useCollections = (search) => {
     const navigate = useNavigate()
@@ -15,12 +15,11 @@ const useCollections = (search) => {
         try {
             setLoading(true)
             const response = search
-                            ? await photosServices.getSearchPhotos(search, page, order)
-                            : await photosServices.getPhotos(page, order)
+                            ? await photos.getSearchPhotos(search, page, order)
+                            : await photos.getPhotos(page, order)
             if (response.ok) {
                 const result = await response.json()
                 const collection = search ? result.results : result
-                console.log(collection[0])
                 setCollections([ collection ])
                 setLoading(false)
             } else {
@@ -36,8 +35,8 @@ const useCollections = (search) => {
     const getMorePhotos = async () => {
         try {
             const response = search
-                            ? await photosServices.getSearchPhotos(search, page + 1, order)
-                            : await photosServices.getPhotos(page + 1, order)
+                            ? await photos.getSearchPhotos(search, page + 1, order)
+                            : await photos.getPhotos(page + 1, order)
             setPage(page + 1)
             if (response.ok) {
                 const result = await response.json()

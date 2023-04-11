@@ -1,23 +1,45 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import AppContainer from './components/AppContainer';
-import HomePage from './pages/Home';
-import PhotoPage from './pages/Photo';
-import NotFoundPage from './pages/NotFound';
-import './styles.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import RoutesNavigation from './constants/RoutesNavigation'
+import { AppContainer } from './components'
+import { Home, NotFound, Photo } from './pages'
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <AppContainer/>,
+        children: [
+            {
+                index: true,
+                element: <Home/>
+            },
+            {
+                path: RoutesNavigation.Search,
+                element: <Home/>
+            },
+            {
+                path: RoutesNavigation.Photo,
+                element: <Photo/>,
+            },
+            /*
+            {
+                path: RoutesNavigation.Photos,
+                element: <Photo/>
+            },
+            */
+            
+        ]
+    },
+    {
+        path: '*',
+        element: <NotFound/>
+    },
+])
 
 const App = () => {
     return (
-        <HashRouter>
-            <AppContainer>
-                <Routes>
-                    <Route exact path="/" element={ <HomePage/> }/>
-                    <Route path="/:search" element={ <HomePage/> }/>
-                    <Route path="/photo/:id" element={ <PhotoPage/> }/>
-                    <Route path="/photo/random" element={ <PhotoPage/> }/>
-                    <Route path="*" element={ <NotFoundPage/> }/>
-                </Routes>
-            </AppContainer>
-        </HashRouter>
+        <>
+            <RouterProvider router={router}/>
+        </>
     )
 }
 

@@ -1,8 +1,8 @@
 const RoutesNavigation = {
     Home: "/",
-    Random: "/photo/random",
-    Photo: "/photo",
+    Search: "/:search",
     Photos: "/photos",
+    Photo: "/photos/:id",
     Users: "/users"
 }
 
